@@ -4,7 +4,7 @@ set -e
 
 # TODO: Set to URL of git repo.
 PROJECT_GIT_URL='https://github.com/BasinaLikithViswanath/taskApi'
-PROJECT_BASE_PATH='/usr/local/apps/taskApi'
+PROJECT_BASE_PATH='/usr/local/apps'
 
 # Set Ubuntu Language
 locale-gen en_GB.UTF-8
