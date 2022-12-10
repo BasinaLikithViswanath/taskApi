@@ -2,7 +2,7 @@
 
 set -e
 
-PROJECT_BASE_PATH='/usr/local/apps'
+PROJECT_BASE_PATH='/usr/local/apps/taskApi'
 
 git pull
 $PROJECT_BASE_PATH/env/bin/python manage.py migrate
