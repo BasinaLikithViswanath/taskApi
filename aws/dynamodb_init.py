@@ -1,5 +1,8 @@
 import time
+from turtle import title
 import boto3
+from botocore.client import logger
+from botocore.exceptions import ClientError
 
 
 class AwsDynamodbOperations:
@@ -90,11 +93,18 @@ class AwsDynamodbOperations:
 
     @staticmethod
     def query_all():
-        dynamodb = boto3.resource('dynamodb')
-        table = dynamodb.Table('tasks')
-        response = table.scan()
-        items = response['Items']
-        return items
+        try:
+            dynamodb = boto3.resource('dynamodb')
+            table = dynamodb.Table('tasks')
+            response = table.scan()
+            items = response['Items']
+            return items
+        except ClientError as err:
+            logger.error(
+                "Couldn't update movie %s in table %s. Here's why: %s: %s",
+                title, "tasks",
+                err.response['Error']['Code'], err.response['Error']['Message'])
+            raise
 
     @staticmethod
     def query_by_id_name(data):
