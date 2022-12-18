@@ -94,7 +94,10 @@ class AwsDynamodbOperations:
 
     @staticmethod
     def query_all():
-        dynamodb = boto3.resource('dynamodb')
+        dynamodb = boto3.resource(
+            'dynamodb',
+            region_name='us-east-1'
+        )
         table = dynamodb.Table('tasks')
         response = table.scan()
         items = response['Items']
