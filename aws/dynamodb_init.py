@@ -94,8 +94,7 @@ class AwsDynamodbOperations:
 
     @staticmethod
     def query_all():
-        boto3.Session(profile_name="prod")
-        dynamodb = boto3.Session(profile_name="default").resource(
+        dynamodb = boto3.Session(profile_name="admin").resource(
             'dynamodb',
             region_name='us-east-1'
         )
