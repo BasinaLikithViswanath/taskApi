@@ -12,10 +12,7 @@ locale-gen en_GB.UTF-8
 # Install Python, SQLite and pip
 echo "Installing dependencies..."
 apt-get update
-apt-get install -y python3-dev python3-venv sqlite python-pip supervisor nginx git ntp ntpdate
-
-#time synchronization over network
-ntpdate ntp.ubuntu.com
+apt-get install -y python3-dev python3-venv sqlite python-pip supervisor nginx git
 
 # Create project directory
 mkdir -p $PROJECT_BASE_PATH
