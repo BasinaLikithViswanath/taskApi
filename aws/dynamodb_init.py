@@ -100,7 +100,7 @@ class AwsDynamodbOperations:
             items = response['Items']
             return items
         except ClientError as err:
-            logger.error(
+            print(
                 "Couldn't update movie %s in table %s. Here's why: %s: %s",
                 title, "tasks",
                 err.response['Error']['Code'], err.response['Error']['Message'])
