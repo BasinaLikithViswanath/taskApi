@@ -1,3 +1,4 @@
+import os
 import time
 
 import boto3
@@ -96,7 +97,9 @@ class AwsDynamodbOperations:
     def query_all():
         dynamodb = boto3.resource(
             'dynamodb',
-            region_name='us-east-1'
+            region_name='us-east-1',
+            aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+            aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
         )
         table = dynamodb.Table('tasks')
         response = table.scan()
