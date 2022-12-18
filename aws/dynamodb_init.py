@@ -50,9 +50,7 @@ class AwsDynamodbOperations:
     def save(data):
         dynamodb = boto3.resource(
             'dynamodb',
-            region_name='us-east-1',
-            aws_access_key_id='AKIA44TATD47IVT2RHSO',
-            aws_secret_access_key='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'
+            region_name='us-east-1'
         )
         table = dynamodb.Table('tasks')
         data["id"] = int(time.time())
