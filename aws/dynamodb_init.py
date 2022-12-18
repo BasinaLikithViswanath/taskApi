@@ -48,7 +48,12 @@ class AwsDynamodbOperations:
 
     @staticmethod
     def save(data):
-        dynamodb = boto3.resource('dynamodb')
+        dynamodb = boto3.resource(
+            'dynamodb',
+            region_name='us-east-1',
+            aws_access_key_id='AKIA44TATD47IVT2RHSO',
+            aws_secret_access_key='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'
+        )
         table = dynamodb.Table('tasks')
         data["id"] = int(time.time())
         table.put_item(Item=data)
