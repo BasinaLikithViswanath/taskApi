@@ -73,7 +73,10 @@ class AwsDynamodbOperations:
 
     @staticmethod
     def update(data):
-        dynamodb = boto3.resource('dynamodb')
+        dynamodb = boto3.resource(
+            'dynamodb',
+            region_name='us-east-1'
+        )
         table = dynamodb.Table('tasks')
         table.update_item(
             Key={
