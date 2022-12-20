@@ -60,12 +60,12 @@ class AwsDynamodbOperations:
             'dynamodb',
             region_name='us-east-1'
         )
+        data["id"] = int(time.time())
         key = {
             'id': int(data['id']),
             'task_name': data['task_name']
         }
         table = dynamodb.Table('tasks')
-        data["id"] = int(time.time())
         table.put_item(Item=data)
 
         self.flush()
