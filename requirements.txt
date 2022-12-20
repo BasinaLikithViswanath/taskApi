@@ -2,3 +2,4 @@ django
 djangorestframework
 boto3
 awscli
+django-redis
