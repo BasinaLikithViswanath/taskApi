@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'taskApi.wsgi.application'
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'taskcache.isbhjn.ng.0001.use1.cache.amazonaws.com:6379',
+        'LOCATION': 'redis://taskcache.isbhjn.ng.0001.use1.cache.amazonaws.com:6379',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
